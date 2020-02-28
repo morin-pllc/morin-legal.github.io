@@ -1,0 +1,169 @@
+---
+# empty front matter
+---
+
+@import "fonts";
+@import "vars";
+@import "mixins";
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-text-size-adjust: none;
+    zoom: 1;
+}
+
+section, main, nav, header, footer, article {
+    display: block;
+}
+
+body {
+    -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+
+    background: $color-body-bg;
+    color: $color-text;
+    // @include font('regular');
+    font-family: system-ui, BlinkMacSystemFont, -apple-system, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    font-family: Georgia, serif;
+    @include remify('font-size', 16px);
+    & > a[href='#main'] {
+        @include accessibility;
+    }
+    position: relative;
+
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+b, strong {
+    // @include font('bold');
+}
+i, em {
+    // @include font('italic');
+}
+
+a {
+    // color: inherit;
+    /*color: $color-link;*/
+    // color: $color-link;
+    text-decoration: none;
+    transition: .2s all;
+    &:hover {
+        /*color: $color-orange;*/
+    }
+    img {
+        border: 0;
+    }
+}
+
+img {
+    height: auto;
+    width: 100%;
+}
+
+.outer {
+    flex: 1;
+}
+
+.content p:not(:last-child),
+.content ul:not(:last-child),
+.content ol:not(:last-child),
+.content blockquote {
+    margin-bottom: 1em;
+}
+.content p,
+.content li {
+    line-height: 1.5em;
+}
+.content ul,
+.content ol {
+    padding-left: 1em;
+}
+.content li {
+    margin-bottom: .5em;
+}
+
+.s-full-width {
+    width: 100%;
+}
+.s-page-width {
+    margin-right: auto;
+    margin-left: auto;
+    @include remify('max-width', $page-width);
+    width: 100%;
+}
+.wrapper {
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: $page-gutter;
+    padding-left: $page-gutter;
+}
+
+.outer > header {
+    border-bottom: 1px solid #000;
+    margin-bottom: 2em;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    text-align: center;
+}
+
+.about-tom {
+    img {
+        -webkit-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.5);
+        -moz-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.5);
+        box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.5);
+        display: block;
+        height: auto;
+        margin-right: auto;
+        margin-bottom: 2em;
+        margin-left: auto;
+        @include remify('max-width', 260px);
+        @include remify('padding-top', 10px);
+        @include remify('padding-right', 10px);
+        @include remify('padding-bottom', 10px);
+        @include remify('padding-left', 10px);
+        width: 100%;
+        @media all and (min-width: $breakpoint-min) {
+            float: right;
+            margin-left: 2em;
+        }
+    }
+}
+
+h2 {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.schedule {
+    border-top: 1px solid #000;
+    margin-top: 2em;
+    padding-top: 2em;
+}
+
+body > footer {
+    border-top: 1px solid #000;
+    margin-top: 2em;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    text-align: center;
+    .firm-name {
+        @include remify('font-size', 24px);
+        margin-bottom: .5em;
+    }
+    @media all and (max-width: $breakpoint-mid-max) {
+        .firm-address {
+            span {
+                display: block;
+                &.bullet {
+                    display: none;
+                }
+            }
+        }
+    }
+}

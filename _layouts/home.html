@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% include head.html %}
+</head>
+<body class="{{ page.class }}"><a class="skip" href="#main">Skip to content</a>
+    <div class="outer">
+        <header>
+            <div class="s-page-width"><div class="wrapper">
+                <h1>{{ page.contentTitle }}</h1>
+            </div></div>
+        </header>
+        <div id="main" class="s-page-width">
+            <div class="wrapper content about-tom">
+                <img src="/ui/img/tom-morin.jpg" alt="Photo of Thomas G. Morin" />
+                {{ content }}
+            </div>
+            <div class="wrapper content practice-areas">
+                <h2>Primary Areas of&nbsp;Practice</h2>
+{% for practiceArea in site.practice-areas %}
+                <h3>{{ practiceArea.title }}</h3>
+                <p>{{ practiceArea.content | markdownify }}</p>
+{% endfor %}
+            </div>
+            <div class="wrapper content schedule">
+                <p>To schedule a consultation with Attorney Thom Morin, call <a href="tel:+15086953554">508-695-3554</a> or send an email at <a href="mailto:Thomas@Morin.legal">Thomas@Morin.legal</a>.</p>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="s-page-width"><div class="wrapper">
+            <p class="firm-name">The Law Office of Thomas G. Morin, PLLC</p>
+            <p class="firm-address"><span>12 Church Street</span><span class="bullet"> &bull; </span><span>North&nbsp;Attleborough</span><span class="bullet"> &bull; </span><span>Massachusetts&nbsp;&bull;&nbsp;02670</span></p>
+        </div>
+    </footer>
+{% comment %}
+    <script type="text/javascript" src="/ui/js/script.js"></script>
+    <script type="text/javascript">
+
+    </script>
+{% endcomment %}
+</body>
+</html>

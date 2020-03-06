@@ -34,4 +34,8 @@ plugins:
   - jekyll-redirect-from
 
 collections:
-  - practice-areas
+  practice-areas:
+    order:
+      - estate-planning.md
+      - probating-estate.md
+      - business-planning.md

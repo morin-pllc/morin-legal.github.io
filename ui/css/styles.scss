@@ -29,15 +29,15 @@ body {
     // @include font('regular');
     font-family: system-ui, BlinkMacSystemFont, -apple-system, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     font-family: Georgia, serif;
-    @include remify('font-size', 16px);
+    @include remify('font-size', 18px);
     & > a[href='#main'] {
         @include accessibility;
     }
     position: relative;
 
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
+    // display: flex;
+    // min-height: 100vh;
+    // flex-direction: column;
 }
 
 b, strong {
@@ -67,7 +67,7 @@ img {
 }
 
 .outer {
-    flex: 1;
+    // flex: 1;
 }
 
 .content p:not(:last-child),
@@ -97,19 +97,34 @@ img {
     @include remify('max-width', $page-width);
     width: 100%;
 }
+.s-page-width-half {
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    @media all and (min-width: $breakpoint-min) {
+        @include remify('max-width', $page-width-half);
+    }
+}
 .wrapper {
     margin-right: auto;
     margin-left: auto;
     padding-right: $page-gutter;
     padding-left: $page-gutter;
 }
+.whitespace {
+    @include remify('padding-top', $vert3);
+    @include remify('padding-bottom', $vert3);
+}
 
 .outer > header {
-    border-bottom: 1px solid #000;
+    background-color: $color-tan;
     margin-bottom: 2em;
     padding-top: 2em;
     padding-bottom: 2em;
     text-align: center;
+    h1 {
+        font-weight: normal;
+    }
 }
 
 .about-tom {
@@ -140,15 +155,202 @@ h2 {
     margin-bottom: 1em;
 }
 
-.schedule {
-    border-top: 1px solid #000;
-    margin-top: 2em;
-    padding-top: 2em;
+.cta-button {
+    background-color: $color-red;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: .1em;
+    @include remify('padding-top', 20px);
+    @include remify('padding-right', 20px);
+    @include remify('padding-bottom', 16px);
+    @include remify('padding-left', 20px);
+    text-transform: uppercase;
+    transform: .2s all;
+    &:hover {
+        background-color: $color-red-highlight;
+    }
+}
+
+.m-practice-areas {
+    background-color: $color-brown;
+    color: white;
+    & > div {
+        @include remify('padding-top', $vert3);
+        h2 {
+            // font-family: sans-serif;
+            font-size: 2em;
+            font-weight: normal;
+            line-height: 1.125em;
+            text-align: center;
+        }
+    }
+    .practice-areas {
+        & > div {
+            @include remify('padding-bottom', $vert3);
+            &:last-of-type {
+                background-color: white;
+                color: $color-text;
+                @include remify('padding-top', $vert3);
+            }
+            h3 {
+                font-family: sans-serif;
+                font-size: 2em;
+                font-weight: normal;
+                line-height: 1.25em;
+                text-align: center;
+            }
+        }
+    }
+    @media all and (min-width: $breakpoint-min) {
+        & > div {
+            @include remify('padding-top', $vert4);
+        }
+        .practice-areas {
+            align-items: stretch;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            & > div {
+                &:not(:last-of-type) {
+                    flex-basis: 50%;
+                    max-width: 50%;
+                    .s-page-width {
+                        @include remify('max-width', $page-width-half);
+                        h3 {
+                            text-align: center;
+                        }
+                    }
+                    &:nth-of-type(1) {
+                        .s-page-width {
+                            margin-right: 0;
+                            @include remify('padding-right', $gutter-x2);
+                        }
+                    }
+                    &:nth-of-type(2) {
+                        .s-page-width {
+                            margin-left: 0;
+                            @include remify('padding-left', $gutter-x2);
+                        }
+                    }
+                }
+                &:last-of-type {
+                    flex-basis: 100%;
+                    max-width: 100%;
+                }
+                h3 {
+                    text-align: left;
+                }
+            }
+        }
+    }
+    @media all and (min-width: $breakpoint-nav-min) {
+        .practice-areas {
+            & > div {
+                &:not(:last-of-type) {
+                    .s-page-width {
+                        padding-top: 1em;
+                        padding-bottom: 1em;
+                    }
+                    &:nth-of-type(1) {
+                        .s-page-width {
+                            @include remify('padding-right', $gutter-x3);
+                        }
+                    }
+                    &:nth-of-type(2) {
+                        .s-page-width {
+                            border-left: 2px solid white;
+                            margin-left: -1px;
+                            @include remify('padding-left', $gutter-x3);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.m-contact {
+    background-color: $color-tan;
+    & > div {
+        &:nth-of-type(1) {
+            color: rgba(0, 0, 0, .75);
+            font-family: sans-serif;
+            font-size: 2em;
+            text-align: center;
+            p {
+                line-height: 1.25em;
+            }
+            .cta-button {
+                display: inline-block;
+                margin-bottom: 2em;
+            }
+            .call {
+                font-size: .5em;
+                span {
+                    display: block;
+                }
+                a {
+                    color: inherit;
+                    // display: block;
+                }
+            }
+            .s-page-width-half {
+                width: 100%;
+            }
+        }
+        &:nth-of-type(2) {
+            img {
+                display: block;
+            }
+        }
+    }
+    @media all and (min-width: $breakpoint-min) {
+        align-items: stretch;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        & > div {
+            align-items: center;
+            display: flex;
+            flex-direction: row;
+            flex-basis: 50%;
+            max-width: 50%;
+            &:nth-of-type(1) {
+                text-align: left;
+                .call {
+                    a {
+                        // display: inline;
+                    }
+                }
+                .s-page-width-half {
+                    margin-right: 0;
+                    @include remify('padding-right', $gutter-x2);
+                }
+            }
+            &:nth-of-type(2) {
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                img {
+                    display: none;
+                }
+            }
+        }
+    }
+    @media all and (min-width: $breakpoint-nav-min) {
+        & > div {
+            &:nth-of-type(1) {
+                .whitespace {
+                    @include remify('padding-top', $vert5);
+                    @include remify('padding-bottom', $vert5);
+                }
+            }
+        }
+    }
 }
 
 body > footer {
-    border-top: 1px solid #000;
-    margin-top: 2em;
     padding-top: 2em;
     padding-bottom: 2em;
     text-align: center;

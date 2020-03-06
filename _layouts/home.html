@@ -10,20 +10,43 @@
                 <h1>{{ page.contentTitle }}</h1>
             </div></div>
         </header>
-        <div id="main" class="s-page-width">
-            <div class="wrapper content about-tom">
+        <div id="main">
+            <div class="s-page-width wrapper content whitespace about-tom">
                 <img src="/ui/img/tom-morin.jpg" alt="Photo of Thomas G. Morin" />
                 {{ content }}
             </div>
-            <div class="wrapper content practice-areas">
-                <h2>Primary Areas of&nbsp;Practice</h2>
-{% for practiceArea in site.practice-areas %}
-                <h3>{{ practiceArea.title }}</h3>
-                <p>{{ practiceArea.content | markdownify }}</p>
+            <div class="m-practice-areas">
+                <div class="s-page-width wrapper content">
+                    <h2>Primary Areas of&nbsp;Practice</h2>
+                </div>
+                <div class="practice-areas">
+{% assign practiceAreas = site.practice-areas | sort: 'list_order' %}
+{% for practiceArea in practiceAreas %}
+                    <div><div class="s-page-width wrapper content">
+                        <h3>{{ practiceArea.title }}</h3>
+                        {{ practiceArea.content }}
+                    </div></div>
 {% endfor %}
+                </div>
             </div>
-            <div class="wrapper content schedule">
-                <p>To schedule a consultation with Attorney Thom Morin, call <a href="tel:+15086953554">508-695-3554</a> or send an email at <a href="mailto:Thomas@Morin.legal">Thomas@Morin.legal</a>.</p>
+            <div class="m-contact">
+                <div>
+                    <div class="s-page-width-half wrapper content whitespace">
+                        <p>Schedule a consultation with Attorney Thom&nbsp;Morin.</p>
+                        <a class="cta-button" href="mailto:Thomas@Morin.legal">Contact by Email</a>
+                        <p class="call"><span>Or call</span> <a href="tel:+15086953554">508-695-3554</a></p>
+                    </div>
+                </div>
+                <div>
+                    <img src="/ui/img/books.jpg" alt="" />
+                </div>
+                <style type="text/css">
+                    @media all and (min-width: 768px) {
+                        .m-contact > div:nth-of-type(2) {
+                            background-image: url('/ui/img/books.jpg');
+                        }
+                    }
+                </style>
             </div>
         </div>
     </div>
@@ -31,7 +54,7 @@
         <div class="s-page-width"><div class="wrapper">
             <p class="firm-name">The Law Office of Thomas G. Morin, PLLC</p>
             <p class="firm-address"><span>12 Church Street</span><span class="bullet"> &bull; </span><span>North&nbsp;Attleborough</span><span class="bullet"> &bull; </span><span>Massachusetts&nbsp;&bull;&nbsp;02670</span></p>
-        </div>
+        </div></div>
     </footer>
 {% comment %}
     <script type="text/javascript" src="/ui/js/script.js"></script>

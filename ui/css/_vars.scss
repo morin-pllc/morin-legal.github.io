@@ -4,10 +4,11 @@ $breakpoint-min: 768px;
 $breakpoint-max: 767px;
 $breakpoint-mid-min: 600px;
 $breakpoint-mid-max: 599px;
-$breakpoint-nav-min: $breakpoint-min;
-$breakpoint-nav-max: $breakpoint-max;
+$breakpoint-nav-min: 1024px;
+$breakpoint-nav-max: 1023px;
 
-$page-width: 960px;
+$page-width: 1280px;
+$page-width-half: 640px;
 $page-gutter: 20px;
 $page-gutter-x2: 40px;
 
@@ -30,12 +31,16 @@ $vert4: 70px;
 $vert5: 100px;
 
 $color-body-bg: rgb(255, 255, 255);
-$color-text: rgb(0,0,0);
+$color-text: rgba(0,0,0, .75);
 
-// $color-red: #a91b0d;
-// $color-purple: rgb(38, 31, 68);
-// $color-pink: rgb(181, 40, 151);
-// $color-green: rgb(55, 175, 112);
-// $color-blue: rgb(29, 124, 181);
+/*
+rgb(174, 40, 50) <-- button
 
-// $color-link: $color-blue;
+rgb(164, 144, 120) <-- tan
+rgb(202, 176, 148)
+*/
+
+$color-brown: rgb(116, 100, 84);
+$color-tan: rgb(202, 176, 148);
+$color-red: rgb(174, 40, 50);
+$color-red-highlight: rgb(194, 40, 50);

@@ -343,6 +343,7 @@ h2 {
                 &:not(:last-of-type) {
                     flex-basis: 50%;
                     max-width: 50%;
+                    @include remify('padding-bottom', $vert5);
                     .s-page-width {
                         @include remify('max-width', $page-width-half);
                         h3 {

@@ -275,6 +275,7 @@ img {
 }
 
 .about-tom {
+    text-align: justify;
     img {
         -webkit-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.5);
         -moz-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.5);
@@ -327,6 +328,7 @@ h2 {
 .m-practice-areas {
     background-color: $color-brown;
     color: white;
+    text-align: justify;
     & > div {
         @include remify('padding-top', $vert3);
         h2 {

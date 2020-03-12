@@ -487,6 +487,9 @@ body > footer {
         @include remify('font-size', 24px);
         margin-bottom: .5em;
     }
+    a.tel {
+        color: inherit;
+    }
     .contact {
         margin-top: 2em;
     }
